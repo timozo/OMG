@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { auth, signInWithEmailAndPassword } from '../services/firebase';
 
-export default function LoginScreen({ history }) {
+export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,7 +11,7 @@ export default function LoginScreen({ history }) {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        history.push('/TabNavigation'); // Assuming you have a route named '/TabNavigation'
+        console.log('User:', user);
       })
       .catch((error) => {
         if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
@@ -24,7 +24,7 @@ export default function LoginScreen({ history }) {
 
   // Navigate to SignupScreen in the stack
   const handleSignup = () => {
-    history.push('/Signup'); // Assuming you have a route named '/Signup'
+    console.log('Signup');
   };
 
   return (

@@ -8,7 +8,7 @@ export default function LandingPage() {
         <img src={Logo} alt="OMG logo" className="logo" />
 
         <div className="btnwrapper">
-          <button className="loginbtn" onClick={()=>LoginScreen()}>Login</button>
+          <button className="loginbtn" onClick={() => <LoginScreen />}>Login</button>
           <button className="signupbtn">Sign-up</button>
         </div>
       </header>
