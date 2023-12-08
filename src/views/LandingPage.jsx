@@ -4,7 +4,7 @@ import LoginScreen from "./LoginPage";
 export default function LandingPage() {
   return (
     <body>
-      <header className="appHeader">
+      <header className="app_header">
         <img src={Logo} alt="OMG logo" className="logo" />
 
         <div className="btnwrapper">
