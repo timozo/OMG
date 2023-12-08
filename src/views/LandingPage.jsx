@@ -1,9 +1,6 @@
-import Header from "../comonents/Header";
-
 export default function LandingPage() {
   return (
     <>
-      <Header />
       <body className="landing_page">
         <div className="landing_text">
           <h1 className="landing_header">Opiskelijoiden Mielipide Gallup</h1>
