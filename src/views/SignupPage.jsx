@@ -1,18 +1,34 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, auth } from '../services/firebase';
+import { getFirestore, collection, doc, setDoc } from 'firebase/firestore';
+import { app } from '../services/firebase';
+
+const db = getFirestore(app);
 
 export default function SignupPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // Handle sign up with Firebase and error handling
   const handleSignup = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
-        console.log('User:', user);
+        const userId = user.uid;
+
+        // Create a document reference for the new user
+        const collectionRef = collection(db, 'users');
+        const docRef = doc(collectionRef, userId);
+
+        // Set the user UID in the document
+        setDoc(docRef, { uid: userId })
+          .then(() => {
+            console.log('User UID saved successfully');
+          })
+          .catch((error) => {
+            console.error('Error saving user UID:', error.message);
+          });
       })
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
