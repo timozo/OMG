@@ -1,0 +1,502 @@
+[
+    {
+        "course-code": "COMP.SGN.100",
+        "course-name": "Introduction to Signal Processing",
+        "credits": 5
+    },
+    {
+        "course-code": "DATA.ML.100",
+        "name": "Introduction to Pattern Recognition and Machine Learning",
+        "credits": 5
+    },
+    {
+        "course-code": "DATA.ML.200",
+        "name": "Pattern Recognition and Machine Learning",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.SGN.110",
+        "name": "Introduction to Image and Video Processing",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.SGN.120",
+        "name": "Introduction to Audio Processing",
+        "credits": 5
+    },
+    {
+        "course-code": "ARK.110",
+        "name": "Taide I",
+        "credits": 5
+    },
+    {
+        "course-code": "ARK.210",
+        "name": "Taide II",
+        "credits": 10
+    },
+    {
+        "course-code": "DATA.ML.330",
+        "name": "Media Analysis",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.SGN.240",
+        "name": "Advanced Signal Processing Laboratory",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.SGN.220",
+        "name": "Advanced Audio Processing",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.SGN.200",
+        "name": "Advanced Signal Processing",
+        "credits": 5
+    },
+    {
+        "course-code": "DATA.ML.310",
+        "name": "Artificial Intelligence",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.CS.300",
+        "name": "Data Structures and Algorithms 1",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.CS.320",
+        "name": "Data-Intensive Programming",
+        "credits": 5
+    },
+    {
+        "course-code": "DATA.STAT.840",
+        "name": "Statistical Methods for Text Data Analysis",
+        "credits": 5
+    },
+    {
+        "course-code": "DATA.ML.390",
+        "name": "Computational Diagnostics of Data",
+        "credits": 5
+    },
+    {
+        "course-code": "DATA.ML.300",
+        "name": "Computer Vision",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.SGN.230",
+        "name": "Vector Space Methods for Signal and Image Processing",
+        "credits": 5
+    },
+    {
+        "course-code": "DATA.ML.430",
+        "name": "Complex Networks",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.SGN.210",
+        "name": "Signal Compression",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.SGN.320",
+        "name": "3D and Virtual Reality",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.SGN.340",
+        "name": "Speech Processing",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.422",
+        "name": "Non-Destructive Testing and Failure Analysis",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.420",
+        "name": "Corrosion and Wear of Materials",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.550",
+        "name": "Metals Technology",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.450",
+        "name": "Phase Transformations and Heat Treatments of Metals",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.470",
+        "name": "Coatings and Surface Treatments",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.452",
+        "name": "Joining Methods for Metals",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.472",
+        "name": "Advanced Surface Engineering",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.462",
+        "name": "Advanced Ceramics",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.460",
+        "name": "Processing of Advanced Ceramics",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.560",
+        "name": "Materials for Energy Technologies",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.430",
+        "name": "Polymeric Materials",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.432",
+        "name": "Rheology",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.440",
+        "name": "Adhesion and Surface Modifications",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.436",
+        "name": "Processing of Thermoplastics",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.434",
+        "name": "Elastomers",
+        "credits": 5
+    },
+    {
+        "course-code": "KONE.750",
+        "name": "Komposiittirakenteet",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.510",
+        "name": "Advanced Materials Characterization, ",
+        "credits": 5
+    },
+    {
+        "course-code": "FYS.441",
+        "name": "Electron Spectroscopy",
+        "credits": 5
+    },
+    {
+        "course-code": "FYS.440",
+        "name": "Introduction to Surface Science",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.480",
+        "name": "Introduction to Tribology",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.438",
+        "name": "Advanced Composites",
+        "credits": 5
+    },
+    {
+        "course-code": "MSE.120",
+        "name": "Structure and Properties of Engineering Materials, ",
+        "credits": 5
+    },
+    {
+        "course-code": "RAK.RS.390",
+        "name": "Alumiini – materiaali ja rakenne",
+        "credits": 5
+    },
+    {
+        "course-code": "KONE.160",
+        "name": "Koneensuunnittelu ja CAD-mallinnuksen perusteet",
+        "credits": 5
+    },
+    {
+        "course-code": "KEM.350",
+        "name": "Analytical Chemistry 1",
+        "credits": 5
+    },
+    {
+        "course-code": "YEB.144",
+        "name": "LCA in Energy and Environmental Engineering",
+        "credits": 5
+    },
+    {
+        "course-code": "ARK.RH.101",
+        "name": "Arkkitehtuurin historia I",
+        "credits": 5
+    },
+    {
+        "course-code": "ARK.RH.110",
+        "name": "Rakennusoppi I",
+        "credits": 5
+    },
+    {
+        "course-code": "ARK.AD.110",
+        "name": "Rakennussuunnittelu I",
+        "credits": 10
+    },
+    {
+        "course-code": "ARK.AD.120",
+        "name": "Rakennussuunnittelu II",
+        "credits": 10
+    },
+    {
+        "course-code": "ARK.YS.110",
+        "name": "Yhdyskuntasuunnittelu I",
+        "credits": 5
+    },
+    {
+        "course-code": "ARK.RH.201",
+        "name": "Arkkitehtuurin historia II",
+        "credits": 10
+    },
+    {
+        "course-code": "ARK.RH.220",
+        "name": "Rakennusoppi II",
+        "credits": 10
+    },
+    {
+        "course-code": "ARK.RH.230",
+        "name": "Rakennusoppi III",
+        "credits": 5
+    },
+    {
+        "course-code": "ARK.AD.210",
+        "name": "Rakennussuunnittelu III",
+        "credits": 10
+    },
+    {
+        "course-code": "ARK.YS.220",
+        "name": "Yhdyskuntasuunnittelun teoria I",
+        "credits": 5
+    },
+    {
+        "course-code": "ARK.RH.320",
+        "name": "Rakennusoppi IV",
+        "credits": 5
+    },
+    {
+        "course-code": "ARK.RH.310",
+        "name": "Rakennusoppi V",
+        "credits": 5
+    },
+    {
+        "course-code": "ARK.RH.301",
+        "name": "Arkkitehtuurin historia III",
+        "credits": 5
+    },
+    {
+        "course-code": "ARK.AD.310",
+        "name": "Rakennussuunnittelu IV",
+        "credits": 10
+    },
+    {
+        "course-code": "ARK.YS.310",
+        "name": "Yhdyskuntasuunnittelu III",
+        "credits": 10
+    },
+    {
+        "course-code": "AUT.200",
+        "name": "Systeemit ja säätö",
+        "credits": 5
+    },
+    {
+        "course-code": "KONE.110",
+        "name": "Mallinnus ja dokumentointi",
+        "credits": 5
+    },
+    {
+        "course-code": "ROBO.210",
+        "name": "Robotiikan laboratoriotyökurssi",
+        "credits": 5
+    },
+    {
+        "course-code": "ROBO.300",
+        "name": "Theory of Robotics",
+        "credits": 5
+    },
+    {
+        "course-code": "MATH.APP.111",
+        "name": "Analyysin peruskurssi",
+        "credits": 5
+    },
+    {
+        "course-code": "MATH.MA.140",
+        "name": "Vektorit ja matriisit",
+        "credits": 5
+    },
+    {
+        "course-code": "MATH.APP.160",
+        "name": "Differentiaali- ja integraalilaskenta",
+        "credits": 5
+    },
+    {
+        "course-code": "MATH.APP.210",
+        "name": "Johdatus todennäköisyyslaskentaan ja tilastolliseen päättelyyn",
+        "credits": 5
+    },
+    {
+        "course-code": "MATH.APP.220",
+        "name": "Usean muuttujan funktiot",
+        "credits": 5
+    },
+    {
+        "course-code": "MATH.APP.260",
+        "name": "Operaatiotutkimus",
+        "credits": 5
+    },
+    {
+        "course-code": "FYS.101",
+        "name": "Yliopistofysiikka 1",
+        "credits": 5
+    },
+    {
+        "course-code": "FYS.102",
+        "name": "Yliopistofysiikka 2",
+        "credits": 5
+    },
+    {
+        "course-code": "FYS.103",
+        "name": "Yliopistofysiikka 3",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.201",
+        "name": "Kehityspsykologia II",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.202",
+        "name": "Kognitiivinen neurotiede II",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.203",
+        "name": "Persoonallisuuspsykologia II",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.204",
+        "name": "Psykologian tutkimusmenetelmät II: kokeellinen ja korrelatiivinen tutkimus",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.205",
+        "name": "Terveyden ja mielenterveyden psykologia II",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.206",
+        "name": "Työ- ja organisaatiopsykologia I",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.207",
+        "name": "Kliinisen neuropsykologian perusteet",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.208",
+        "name": "Asiakastyön teoriat ja menetelmät",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.209",
+        "name": "Tutustuminen psykologin työhön",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.210",
+        "name": "Psykologiset arviointimenetelmät",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.101",
+        "name": "Kehityspsykologia I",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.102",
+        "name": "Kognitiivinen neurotiede I",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.103",
+        "name": "Persoonallisuuspsykologia I",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.104",
+        "name": "Psykologian tutkimusmenetelmät I",
+        "credits": 5
+    },
+    {
+        "course-code": "PSY.105",
+        "name": "Terveyden ja mielenterveyden psykologia I",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.CS.100",
+        "name": "Ohjelmointi 1: Johdatus ohjelmointiin",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.CS.110",
+        "name": "Ohjelmointi 2: Rakenteet",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.SE.100",
+        "name": "Johdatus ohjelmistotuotantoon",
+        "credits": 5
+    },
+    {
+        "course-code": "DATA.DB.100",
+        "name": "Tietokantojen perusteet",
+        "credits": 5
+    },
+    {
+        "course-code": "HTI.100",
+        "name": "Ihmisen ja teknologian vuorovaikutus 1: Perusteet",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.SEC.100",
+        "name": "Kyberturvallisuus I: perusteet",
+        "credits": 5
+    },
+    {
+        "course-code": "HAL.HATI.212",
+        "name": "Julkinen hallinto ja politiikka",
+        "credits": 5
+    },
+    {
+        "course-code": "HAL.HATI.213",
+        "name": "Henkilöstöjohtaminen",
+        "credits": 5
+    },
+    {
+        "course-code": "COMP.SE.610",
+        "name": "Software Engineering Project 1",
+        "credits": 5
+    }
+]
