@@ -1,4 +1,5 @@
 import Logo from "../assets/Logo.svg";
+import LoginScreen from "./LoginPage";
 
 export default function LandingPage() {
   return (
@@ -7,7 +8,7 @@ export default function LandingPage() {
         <img src={Logo} alt="OMG logo" className="logo" />
 
         <div className="btnwrapper">
-          <button className="loginbtn">Login</button>
+          <button className="loginbtn" onClick={()=>LoginScreen()}>Login</button>
           <button className="signupbtn">Sign-up</button>
         </div>
       </header>
