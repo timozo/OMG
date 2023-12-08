@@ -1,5 +1,5 @@
 image: node:16.5.0
-pages:
+build+deploy:
   stage: deploy
   cache:
     key:
@@ -11,10 +11,13 @@ pages:
   script:
     - npm install
     - npm run build
-    - cp -a dist/. public/
     # saves private SSH key to a file
     - echo "$SSH_PRIVATE_KEY" > id_rsa
     - chmod 600 id_rsa
-    - scp -i id_rsa public/* $SSH_HOST
+    # adds the server's public keys to known hosts
+    - mkdir ~/.ssh
+    - echo "$KNOWN_HOSTS" >> ~/.ssh/known_hosts
+    # sends built files to server
+    - scp -i id_rsa -r dist $SSH_HOST
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
