@@ -4,6 +4,7 @@
 
 .app_header {
   display: flex;
+  position: sticky;
   width: 100%;
   justify-content: space-between;
 }
@@ -14,10 +15,24 @@
   flex-direction: row;
 }
 
+.landing_page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing_text {
+  width: 44vw;
+}
+
 .landing_header {
   color: white;
   font-size: 3em;
   font-family: sans-serif;
+  text-align: start;
+  line-height: 0.4;
 }
 
 .landing_prompt {
@@ -25,6 +40,8 @@
   font-size: 1.5em;
   font-family: sans-serif;
   font-weight: 300;
+  text-align: start;
+  line-height: 0.2;
 }
 
 .btn_wrapper {
@@ -56,11 +73,32 @@
   height: 4.7vh;
   background-color: white;
   border-radius: 50px;
-  color: #a446be;
+  color: #69b8fa;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin-right: 1vw;
   text-decoration: none;
   font-family: sans-serif;
+}
+
+.landing_search_container {
+  margin-left: 2.7vw;
+  margin-top: 3vh;
+}
+
+.landing_search {
+  width: 40vw;
+  height: 5vh;
+  border-radius: 50px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.landing_search_btn {
+  width: 6vw;
+  height: 5vh;
+  border-radius: 50px;
+  background-color: #69b8fa;
+  color: #001220;
+  margin-left: 1vw;
 }
