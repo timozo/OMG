@@ -14,7 +14,7 @@ export default function Search() {
       ];
 
     return (
-        <div>
+        <div style={{background: "white"}}>
             <DataGrid rows={rows} columns={columns} />
         </div>
     )
