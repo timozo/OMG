@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.appHeader {
+.app_header {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -14,7 +14,7 @@
   flex-direction: row;
 }
 
-.loginbtn {
+.login_btn {
   width: 5vw;
   height: 4vh;
   background-color: transparent;
@@ -24,7 +24,7 @@
   margin-top: 1vh;
 }
 
-.signupbtn {
+.signup_btn {
   width: 5vw;
   height: 4vh;
   background-color: white;
