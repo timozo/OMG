@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { auth, signInWithEmailAndPassword } from '../services/firebase';
 
-export default function LoginScreen() {
+export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,7 +22,7 @@ export default function LoginScreen() {
       });
   };
 
-  // Navigate to SignupScreen in the stack
+  // Navigate to SignupPage in the stack
   const handleSignup = () => {
     console.log('Signup');
   };
