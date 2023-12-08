@@ -6,8 +6,6 @@ import SignupPage from "./views/SignupPage";
 import Search from "./views/Search";
 import React from "react";
 
-const reload = () => window.location.reload();
-
 function App() {
   return (
     <>
@@ -17,7 +15,6 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/mock_data.json" ={reload}/>
         </Routes>
       </Router>
     </>
