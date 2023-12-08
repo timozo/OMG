@@ -14,6 +14,8 @@ pages:
     # saves private SSH key to a file
     - echo "$SSH_PRIVATE_KEY" > id_rsa
     - chmod 600 id_rsa
+    # adds the server's public keys to known hosts
+    - echo "$KNOWN_HOSTS" >> ~/.ssh/known_hosts
     # sends built files to server
     - scp -i id_rsa public/* -r dist $SSH_HOST
   rules:
