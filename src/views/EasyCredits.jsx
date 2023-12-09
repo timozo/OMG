@@ -103,7 +103,7 @@ export default function AllCourses() {
   return (
     <div style={{ padding: "2rem" }}>
       <DataGrid
-        style={{background: "white", padding: "1rem", borderRadius: "27px"}}
+        style={{background: "white", zIndex: -1, padding: "1rem", borderRadius: "27px"}}
         rows={rows}
         columns={columns}
         initialState={{ pagination: { paginationModel: { pageSize: 20 } } }}
