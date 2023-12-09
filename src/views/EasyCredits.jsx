@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { firestore } from "../services/firebase";
 import { collection, getDocs, query } from "firebase/firestore";
 
-export default function AllCourses() {
+export default function EasyCredits() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
