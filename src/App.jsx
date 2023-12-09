@@ -7,6 +7,7 @@ import Search from "./views/Search";
 import Header from "./components/Header";
 import RatingsPage from "./views/RatingPage";
 import AllCourses from "./views/AllCourses";
+import Course from "./views/Course";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
           <Route path="/rating" element={<RatingsPage />} />
           <Route path="/search" element={<Search />} />
           <Route path="/courses" element={<AllCourses />} />
-          <Route path="/ezpz" />
+          <Route path="/courses/:id" element={<Course />}/>
+          <Route path="/ezpz" element={<EasyCredits />}/>
         </Routes>
       </Router>
     </>
