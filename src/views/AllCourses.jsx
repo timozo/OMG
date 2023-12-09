@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { firestore } from "../services/firebase";
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import arrow from "../assets/arrow_forward.svg";
 
 export default function AllCourses() {
@@ -9,62 +9,52 @@ export default function AllCourses() {
 
   useEffect(() => {
     const fetchCourses = async () => {
-      const coursesCollection = collection(firestore, "courses");
-      const coursesQuery = query(coursesCollection);
-      const coursesSnapshot = await getDocs(coursesQuery);
+      try {
+        const coursesCollection = collection(firestore, "courses");
+        const coursesSnapshot = await getDocs(coursesCollection);
 
-      const courseData = [];
-      coursesSnapshot.forEach((doc) => {
-        const data = doc.data();
-        courseData.push({
-          id: doc.id,
-          code: data["course-code"],
-          name: data["name"],
-          credits: data["credits"],
-          rating: data["ratings"],
+        const courseData = [];
+        const promises = coursesSnapshot.docs.map(async (doc) => {
+          const data = doc.data();
+          const courseCode = data["course-code"];
+
+          // Query the ratings collection for the specified courseCode
+          const ratingsCollection = collection(firestore, "ratings");
+          const ratingsQuery = query(
+            ratingsCollection,
+            where("courseCode", "==", courseCode)
+          );
+          const ratingsSnapshot = await getDocs(ratingsQuery);
+
+          // Calculate the average rating
+          let totalAvgRating = 0;
+
+          if (ratingsSnapshot.size > 0) {
+            ratingsSnapshot.forEach((ratingDoc) => {
+              const ratingData = ratingDoc.data();
+              totalAvgRating += ratingData.avgRating || 0;
+            });
+
+            totalAvgRating /= ratingsSnapshot.size;
+          }
+
+          courseData.push({
+            id: doc.id,
+            code: courseCode,
+            name: data["name"],
+            credits: data["credits"],
+            rating: totalAvgRating.toFixed(2), // Rounded to 2 decimal places
+          });
         });
-      });
 
-      return courseData;
+        await Promise.all(promises);
+        setCourses(courseData);
+      } catch (error) {
+        console.error("Error fetching course details:", error.message);
+      }
     };
 
-    const fetchRatings = async () => {
-      const ratingsCollection = collection(firestore, "ratings");
-      const ratingsQuery = query(ratingsCollection);
-      const ratingsSnapshot = await getDocs(ratingsQuery);
-
-      const ratingsData = [];
-      ratingsSnapshot.forEach((doc) => {
-        const data = doc.data();
-        ratingsData.push({
-          id: doc.id,
-          code: data["courseCode"],
-          rating: data["avgRating"],
-        });
-      });
-
-      return ratingsData;
-    };
-
-    const fetchData = async () => {
-      const courses = await fetchCourses();
-      const ratings = await fetchRatings();
-
-      // Match ratings with courses based on ID
-      const updatedCourses = courses.map((course) => {
-        const matchingRating = ratings.find(
-          (rating) => rating.code === course.code
-        );
-        return {
-          ...course,
-          rating: matchingRating ? matchingRating.rating : 0,
-        };
-      });
-
-      setCourses(updatedCourses);
-    };
-
-    fetchData();
+    fetchCourses();
   }, []);
 
   console.log(courses);
