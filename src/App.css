@@ -8,6 +8,10 @@
   --color-indigo : #67a1f7;
 }
 
+html {
+  font-family: Roboto;
+}
+
 body {
   margin: 0;
   max-width: var(--max-width);
@@ -21,13 +25,12 @@ body {
   padding-inline: 1rem;
   padding-block: 0.6rem;
   color: white;
-  display: flex;
+  display: inline-flex;
   border-radius: 50px;
   justify-content: center;
   align-items: center;
   text-align: center;
   text-decoration: none;
-  font-family: sans-serif;
 }
 
 .btn.outline {
@@ -71,7 +74,6 @@ body {
 .landing_header {
   color: white;
   font-size: 3rem;
-  font-family: sans-serif;
   text-align: start;
   margin-bottom: 0;
 }
@@ -79,7 +81,6 @@ body {
 .landing_prompt {
   color: white;
   font-size: 1.5em;
-  font-family: sans-serif;
   font-weight: 300;
   text-align: start;
   margin-top: 0.8rem;
