@@ -263,8 +263,9 @@ export default function AllCourses() {
               <a className='btn outline' onClick={() => handleSubmission()}>Submit Rating</a>
           </Box>
       </Modal>
-      <div style={{ background: "white" }}>
+      <div style={{ padding: "2rem" }}>
         <DataGrid
+          style={{background: "white", padding: "1rem", borderRadius: "27px"}}
           rows={rows}
           columns={columns}
           components={{
