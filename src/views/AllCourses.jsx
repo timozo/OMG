@@ -57,8 +57,6 @@ export default function AllCourses() {
     fetchCourses();
   }, []);
 
-  console.log(courses);
-
   const rows = courses.map((course, index) => ({
     id: index + 1,
     col1: course.code,
@@ -75,8 +73,8 @@ export default function AllCourses() {
     ),
     col6: (
       <button
-
-      /*onClick={() => handleButtonClick(course.id)}*/
+        className="see_more"
+        /*onClick={() => handleButtonClick(course.id)}*/
       >
         See more <img src={arrow} alt="arrow forward" />
       </button>
