@@ -8,6 +8,8 @@ import Header from "./components/Header";
 import RatingsPage from "./views/RatingPage";
 import AllCourses from "./views/AllCourses";
 import Course from "./views/Course";
+import { Rating } from "@mui/material";
+import EasyCredits from "./views/EasyCredits";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/courses" element={<AllCourses />} />
           <Route path="/courses/:id" element={<Course />}/>
+          <Route path="/courses/:id" element={<Rating />}/>
           <Route path="/ezpz" element={<EasyCredits />}/>
         </Routes>
       </Router>
