@@ -24,10 +24,34 @@ export default function AllCourses() {
         });
       });
 
-      setCourses(courseData);
+      return courseData;
     };
 
-    fetchCourses();
+    const fetchRatings = async () => {
+      const ratingsCollection = collection(firestore, "ratings");
+      const ratingsQuery = query(ratingsCollection);
+      const ratingsSnapshot = await getDocs(ratingsQuery);
+
+      const ratingsData = [];
+      ratingsSnapshot.forEach((doc) => {
+        const data = doc.data();
+        ratingsData.push({
+          id: doc.id,
+          code: data["course-code"],
+          rating: data["avgRating"],
+        });
+      });
+
+      return ratingsData;
+    };
+
+    const fetchData = async () => {
+      const courses = await fetchCourses();
+      const ratings = await fetchRatings();
+      setCourses([...courses, ...ratings]);
+    };
+
+    fetchData();
   }, []);
 
   console.log(courses);
