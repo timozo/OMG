@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 
 
 
-export default function AddRatingModalBox({courseCode}) {
+export default function AddRatingModalBox({ courseCode }) {
     // sets the course code from the route (:id)
     // let { courseCode } = useParams();
 
@@ -125,7 +125,7 @@ export default function AddRatingModalBox({courseCode}) {
                 maxRows={4}
                 variant="filled"
             />
-                
+
             <button className='btn outline' onClick={handleSubmission}>Submit Rating</button>
         </Box>
     );

@@ -12,6 +12,13 @@ export default function AllCourses() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const [courseCode, setCourseCode] = useState(null);
+
+  function handleAddRating(courseCode) {
+    handleOpen();
+    setCourseCode(courseCode);
+  }
+
   useEffect(() => {
     const fetchCourses = async () => {
       try {
@@ -132,7 +139,7 @@ export default function AllCourses() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <AddRatingModalBox/>
+        <AddRatingModalBox courseCode={courseCode} />
       </Modal>
       <DataGrid
         rows={rows}
