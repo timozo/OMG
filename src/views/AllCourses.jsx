@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { firestore } from "../services/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import arrow from "../assets/arrow_forward.svg";
@@ -127,6 +127,9 @@ export default function AllCourses() {
       <DataGrid
         rows={rows}
         columns={columns}
+        components={{
+          Toolbar: GridToolbar,
+        }}
         initialState={{ pagination: { paginationModel: { pageSize: 20 } } }}
       />
     </div>

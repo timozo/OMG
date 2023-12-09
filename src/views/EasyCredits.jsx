@@ -1,30 +1,59 @@
 import { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { firestore } from "../services/firebase";
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import arrow from "../assets/arrow_forward.svg";
 
-export default function EasyCredits() {
+export default function AllCourses() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
     const fetchCourses = async () => {
-      const coursesCollection = collection(firestore, "courses");
-      const coursesQuery = query(coursesCollection);
-      const coursesSnapshot = await getDocs(coursesQuery);
+      try {
+        const coursesCollection = collection(firestore, "courses");
+        const coursesSnapshot = await getDocs(coursesCollection);
 
-      const courseData = [];
-      coursesSnapshot.forEach((doc) => {
-        const data = doc.data();
-        courseData.push({
-          id: doc.id,
-          code: data["course-code"],
-          name: data["name"],
-          credits: data["credits"],
-          rating: data["ratings"],
+        const courseData = [];
+        const promises = coursesSnapshot.docs.map(async (doc) => {
+          const data = doc.data();
+          const courseCode = data["course-code"];
+
+          // Query the ratings collection for the specified courseCode
+          const ratingsCollection = collection(firestore, "ratings");
+          const ratingsQuery = query(
+            ratingsCollection,
+            where("courseCode", "==", courseCode)
+          );
+          const ratingsSnapshot = await getDocs(ratingsQuery);
+
+          // Calculate the average rating
+          let totalAvgRating = 0;
+
+          if (ratingsSnapshot.size > 0) {
+            ratingsSnapshot.forEach((ratingDoc) => {
+              const ratingData = ratingDoc.data();
+              totalAvgRating += ratingData.workloadRating || 0;
+            });
+
+            totalAvgRating /= ratingsSnapshot.size;
+          }
+
+          courseData.push({
+            id: doc.id,
+            code: courseCode,
+            name: data["name"],
+            credits: data["credits"],
+            rating: totalAvgRating.toFixed(2), // Rounded to 2 decimal places
+          });
         });
-      });
 
-      setCourses(courseData);
+        await Promise.all(promises);
+        courseData.sort((a, b) => b.rating - a.rating);
+        const top20Courses = courseData.slice(0, 20);
+        setCourses(top20Courses);
+      } catch (error) {
+        console.error("Error fetching course details:", error.message);
+      }
     };
 
     fetchCourses();
@@ -38,6 +67,14 @@ export default function EasyCredits() {
     col2: course.name,
     col3: course.credits,
     col4: course.rating,
+    col5: (
+      <button
+
+      /*onClick={() => handleButtonClick(course.id)}*/
+      >
+        See more <img src={arrow} alt="arrow forward" />
+      </button>
+    ),
   }));
 
   const columns = [
@@ -45,6 +82,22 @@ export default function EasyCredits() {
     { field: "col2", headerName: "Name", width: 150 },
     { field: "col3", headerName: "Credits", width: 150 },
     { field: "col4", headerName: "Rating", width: 150 },
+    {
+      field: "col5",
+      headerName: "",
+      width: 200,
+      renderCell: (params) => (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {params.value}
+        </div>
+      ),
+    },
   ];
 
   return (
