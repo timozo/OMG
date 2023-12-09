@@ -75,7 +75,7 @@ export default function AllCourses() {
     col5: (
       <button
         className="btn filled primary"
-        onClick={handleOpen()}
+        onClick={() => handleOpen()}
       >
         Add Rating
       </button>
