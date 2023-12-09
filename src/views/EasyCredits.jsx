@@ -59,17 +59,15 @@ export default function AllCourses() {
     fetchCourses();
   }, []);
 
-  console.log(courses);
-
   const rows = courses.map((course, index) => ({
     id: index + 1,
+    col0: index < 5 ? "👑" : "",
     col1: course.code,
     col2: course.name,
     col3: course.credits,
     col4: course.rating,
     col5: (
       <button
-
       /*onClick={() => handleButtonClick(course.id)}*/
       >
         See more <img src={arrow} alt="arrow forward" />
@@ -78,6 +76,7 @@ export default function AllCourses() {
   }));
 
   const columns = [
+    { field: "col0", headerName: "", width: 50 },
     { field: "col1", headerName: "Code", width: 150 },
     { field: "col2", headerName: "Name", width: 150 },
     { field: "col3", headerName: "Credits", width: 150 },
