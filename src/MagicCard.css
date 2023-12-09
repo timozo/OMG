@@ -6,6 +6,7 @@
   --color-blue: #69b8fa;
   --color-bg: #001220;
   --color-indigo: #67a1f7;
+  --rotate: 45deg;
 }
 
 @property --rotate {
