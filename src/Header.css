@@ -1,0 +1,110 @@
+#btn_menu_container {
+    font-size: 2rem;
+    color: white;
+    user-select: none;
+    z-index: 100;
+    
+}
+
+.menu_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media only screen and (min-width: 50rem) {
+    #btn_menu_container {
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 50rem) {
+    :root {
+        --fullscreen-ham-pad: 0rem;
+    }
+    .menu_container:not(.visible) {
+        display: none;
+    }
+    .menu_container.visible {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        position: absolute;
+        top:0; right: 0;
+        background: var(--color-bg);
+        align-items: center;
+        gap: 1rem;
+        padding-top: var(--fullscreen-ham-pad);
+        height: calc(100vh - var(--fullscreen-ham-pad));
+        z-index: 100;
+    }
+    .btn_wrapper {
+        padding: 1.4rem;
+    }
+    .nav_wrapper {
+        flex-direction: column;
+        z-index: 100;
+    }
+}
+
+.app_header {
+    margin: auto;
+    background: linear-gradient(to right, var(--color-purple) 50%, var(--color-blue) 50%);
+  }
+  
+  .app_header .links {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .app_header .background_container {
+    position: relative;
+    max-width: var(--max-width);
+    background: var(--color-blue);
+    background-image: url("/src/assets/colors.svg");
+    background-repeat: no-repeat;
+    margin: auto;
+    
+  }
+  
+  .app_header .background_container .container {
+    padding: 1rem;
+    display: flex;
+    position: sticky;
+    width: calc(100% - 2*rem);
+    justify-content: space-between;
+    align-items: center;
+    background-repeat: no-repeat;
+  }
+  
+  .logo {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+  }
+  
+  .nav_wrapper {
+    align-items: center;
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .btn_wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .nav_link {
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    color: white;
+  }

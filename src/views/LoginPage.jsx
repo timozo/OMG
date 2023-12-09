@@ -49,7 +49,7 @@ export default function LoginPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="btn login" onClick={handleLogin}>
+        <button className="btn filled primary" onClick={handleLogin}>
           Login
         </button>
         <div>

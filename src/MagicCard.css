@@ -21,13 +21,12 @@
   justify-content: center;
   align-items: center;
   background-color: #1f313f;
-  width: 30%;
   padding: 2rem;
   gap: 1rem;
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%);
-  left: 50%;
+  transform: translateY(-50%);
+  left: 0%; right: 0%; margin: auto;
   border: 5px solid transparent;
   border-image: linear-gradient(
       var(--rotate),
@@ -44,6 +43,12 @@
     var(--color-blue)
   );
   animation: spin 5s infinite linear;
+
+  width: 30rem;
+  max-width: calc(100% - 7rem);
+  margin: auto;
+  left: 0;
+  right: 0;
 }
 
 .card:hover {
@@ -67,13 +72,6 @@
   margin: 0.2rem;
   padding: 0.7rem;
   width: 80%;
-}
-
-.btn.login {
-  width: 20%;
-  border: none;
-  color: var(--color-bg);
-  background-color: var(--color-blue);
 }
 
 .login_prompt {
