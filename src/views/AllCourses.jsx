@@ -218,54 +218,54 @@ export default function AllCourses() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-          <Box sx={style} className='rating-modal' style={style}>
-            <h1 style={{ fontSize: '30px', marginBottom: '30px' }}>Rating the course {courseCode}</h1>
+        <Box sx={style} className='rating-modal' style={style}>
+          <h1 style={{ fontSize: '30px', marginBottom: '30px' }}>Rating the course {courseCode}</h1>
 
-            <div className='container'>
-              <div>
-                  <p>Content</p>
-                  <Rating
-                      value={contentRating}
-                      precision={1}
-                      onChange={(event, newValue) => { setContentRating(newValue); }}
-                      emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
-                  />
+          <div className='container'>
+            <div>
+                <p>Content</p>
+                <Rating
+                  value={contentRating}
+                  precision={1}
+                  onChange={(event, newValue) => { setContentRating(newValue); }}
+                  emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                />
+            </div>
+            <div>
+                <p>Quality</p>
+                <Rating
+                  value={qualityRating}
+                  precision={1}
+                  onChange={(event, newValue) => { setQualityRating(newValue); }}
+                  emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                />
+            </div>
+            <div>
+                <p>Workload</p>
+                <Rating
+                  value={workloadRating}
+                  precision={1}
+                  onChange={(event, newValue) => { setWorkloadRating(newValue) }}
+                  emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                />
               </div>
-              <div>
-                  <p>Quality</p>
-                  <Rating
-                    value={qualityRating}
-                    precision={1}
-                    onChange={(event, newValue) => { setQualityRating(newValue); }}
-                    emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
-                  />
-              </div>
-              <div>
-                  <p>Workload</p>
-                  <Rating
-                    value={workloadRating}
-                    precision={1}
-                    onChange={(event, newValue) => { setWorkloadRating(newValue) }}
-                    emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
-                  />
-                </div>
-              </div>
+            </div>
 
-              <TextField
-                id="filled-multiline-flexible"
-                label="Multiline"
-                multiline
-                maxRows={4}
-                variant="filled"
-                onChange={(event) => {setComment(event.target.value)}}
-              />
-                  
-              <a className='btn outline' onClick={() => handleSubmission()}>Submit Rating</a>
-          </Box>
+            <TextField
+              id="filled-multiline-flexible"
+              label="Multiline"
+              multiline
+              maxRows={4}
+              variant="filled"
+              onChange={(event) => {setComment(event.target.value)}}
+            />
+                
+            <a className='btn outline' onClick={() => handleSubmission()}>Submit Rating</a>
+        </Box>
       </Modal>
       <div style={{ padding: "2rem" }}>
         <DataGrid
-          style={{background: "white", zIndex: -1, padding: "1rem", borderRadius: "27px"}}
+          style={{background: "white", padding: "1rem", borderRadius: "27px"}}
           rows={rows}
           columns={columns}
           components={{
