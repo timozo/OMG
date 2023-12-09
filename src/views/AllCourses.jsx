@@ -2,15 +2,13 @@ import { useEffect, useState } from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { firestore } from "../services/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
-// import arrow from "../assets/arrow_forward.svg";
 import AddRatingModalBox from "../components/AddRatingModalBox";
 import Modal from '@mui/material/Modal';
 
 export default function AllCourses() {
   const [courses, setCourses] = useState([]);
+  const [open, setOpen] = useState(false);
 
-  // manages the modal
-  const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -25,7 +23,6 @@ export default function AllCourses() {
           const data = doc.data();
           const courseCode = data["course-code"];
 
-          // Query the ratings collection for the specified courseCode
           const ratingsCollection = collection(firestore, "ratings");
           const ratingsQuery = query(
             ratingsCollection,
@@ -33,7 +30,6 @@ export default function AllCourses() {
           );
           const ratingsSnapshot = await getDocs(ratingsQuery);
 
-          // Calculate the average rating
           let totalAvgRating = 0;
 
           if (ratingsSnapshot.size > 0) {
@@ -50,7 +46,7 @@ export default function AllCourses() {
             code: courseCode,
             name: data["name"],
             credits: data["credits"],
-            rating: totalAvgRating.toFixed(2), // Rounded to 2 decimal places
+            rating: totalAvgRating.toFixed(2),
           });
         });
 
@@ -64,7 +60,9 @@ export default function AllCourses() {
     fetchCourses();
   }, []);
 
-  console.log(courses);
+  const handleAddRating = () => {
+    handleOpen();
+  };
 
   const rows = courses.map((course, index) => ({
     id: index + 1,
@@ -75,17 +73,14 @@ export default function AllCourses() {
     col5: (
       <button
         className="btn filled primary"
-        onClick={() => handleOpen()}
+        onClick={handleAddRating}
       >
         Add Rating
       </button>
     ),
     col6: (
-      <button
-
-      /*onClick={() => handleButtonClick(course.id)}*/
-      >
-        See more{/* <img src={arrow} alt="arrow forward" /> */}
+      <button>
+        See more
       </button>
     ),
   }));
@@ -132,7 +127,7 @@ export default function AllCourses() {
   return (
     <div style={{ background: "white" }}>
       <Modal
-        open={handleOpen}
+        open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
