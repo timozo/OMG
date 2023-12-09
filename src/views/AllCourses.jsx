@@ -177,16 +177,12 @@ export default function AllCourses() {
           if (!user) {
               // Handle user not logged in
               return;
-          } else {
-            console.log("bru");
           }
 
           const userUid = user.uid;
 
           // Add a new rating to the "ratings" collection in Firestore
           const ratingsCollection = collection(firestore, 'ratings');
-
-          setComment("I like cheese")
 
           await addDoc(ratingsCollection, {
               courseCode: courseCode,
@@ -200,10 +196,12 @@ export default function AllCourses() {
           });
 
           // Reset form after submission
-          setContentRating(1);
-          setQualityRating(1);
-          setWorkloadRating(1);
+          setContentRating(0);
+          setQualityRating(0);
+          setWorkloadRating(0);
           setComment('');
+
+          setOpen(false)
 
           // You can add further logic, like showing a success message or redirecting the user.
       } catch (error) {
@@ -221,7 +219,7 @@ export default function AllCourses() {
         aria-describedby="modal-modal-description"
       >
           <Box sx={style} className='rating-modal' style={style}>
-            <h1 style={{ fontSize: '30px', marginBottom: '30px' }}>Ratings Page</h1>
+            <h1 style={{ fontSize: '30px', marginBottom: '30px' }}>Rating the course {courseCode}</h1>
 
             <div className='container'>
               <div>
