@@ -71,7 +71,7 @@ export default function SignupPage() {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <button className="btn login" onClick={handleSignup}>
+        <button className="btn filled primary" onClick={handleSignup}>
           Sign Up
         </button>
       </div>

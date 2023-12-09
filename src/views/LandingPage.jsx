@@ -1,7 +1,7 @@
 export default function LandingPage() {
   return (
     <>
-      <body className="landing_page">
+      <div className="landing_page">
         <div className="landing_text">
           <h1 className="landing_header">Opiskelijoiden Mielipide Gallup</h1>
           <h3 className="landing_prompt">
@@ -18,7 +18,7 @@ export default function LandingPage() {
           />
           <a className="btn filled primary">Search</a>
         </div>
-      </body>
+      </div>
     </>
   );
 }
