@@ -68,7 +68,8 @@ export default function AllCourses() {
     col4: course.rating,
     col5: (
       <button
-      /*onClick={() => handleButtonClick(course.id)}*/
+        className="see_more"
+        /*onClick={() => handleButtonClick(course.id)}*/
       >
         See more <img src={arrow} alt="arrow forward" />
       </button>
