@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword, auth } from "../services/firebase";
 import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
 import { app } from "../services/firebase";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "../MagicCard.css";
 
 const db = getFirestore(app);
@@ -10,6 +11,7 @@ export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSignup = () => {
     createUserWithEmailAndPassword(auth, email, password)
@@ -26,6 +28,8 @@ export default function SignupPage() {
         setDoc(docRef, { uid: userId })
           .then(() => {
             console.log("User UID saved successfully");
+            // Redirect to the "/login" endpoint after successful signup
+            navigate("/login");
           })
           .catch((error) => {
             console.error("Error saving user UID:", error.message);
