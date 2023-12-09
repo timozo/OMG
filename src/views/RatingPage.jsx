@@ -35,9 +35,9 @@ const RatingsPage = () => {
         fetchCourses();
     }, []);
 
-    const filteredCourses = selectedOption === 'code'
-        ? courses.filter(course => course.code && course.code.toUpperCase().includes(courseCode.toUpperCase()))
-        : courses.filter(course => course.name && course.name.toUpperCase().includes(courseName.toUpperCase()));
+    const calculateAvgRating = () => {
+        return (contentRating + qualityRating + workloadRating) / 3;
+    };
 
     const handleSubmission = async () => {
         try {
@@ -50,15 +50,27 @@ const RatingsPage = () => {
 
             const userUid = user.uid;
 
+            // Fetch the corresponding course code based on the selected course name
+            let selectedCourseCode = '';
+            if (selectedOption === 'name') {
+                const matchingCourse = courses.find(course => course.name && course.name.toUpperCase() === courseName.toUpperCase());
+                if (matchingCourse) {
+                    selectedCourseCode = matchingCourse.code || '';
+                }
+            } else {
+                // If 'code' is selected, use the entered course code
+                selectedCourseCode = courseCode;
+            }
+
             // Add a new rating to the "ratings" collection in Firestore
             const ratingsCollection = collection(firestore, 'ratings');
 
             await addDoc(ratingsCollection, {
-                courseCode: selectedOption === 'code' ? courseCode : '',
-                courseName: selectedOption === 'name' ? courseName : '',
+                courseCode: selectedCourseCode,
                 contentRating,
                 qualityRating,
                 workloadRating,
+                avgRating: calculateAvgRating(), // Add the avgRating field
                 comment,
                 userUid,
                 timestamp: new Date(),
@@ -118,7 +130,7 @@ const RatingsPage = () => {
                 <label>Choose Course:</label>
                 <select value={selectedOption === 'code' ? courseCode : courseName} onChange={(e) => selectedOption === 'code' ? setCourseCode(e.target.value) : setCourseName(e.target.value)}>
                     <option value="" disabled>Select a course</option>
-                    {filteredCourses.map((course) => (
+                    {courses.map((course) => (
                         <option key={course.id} value={selectedOption === 'code' ? course.code : course.name}>
                             {selectedOption === 'code' ? course.code : course.name}
                         </option>
