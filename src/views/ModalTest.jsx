@@ -13,7 +13,7 @@ export default function BasicModal() {
   return (
         <div>
             <Button onClick={handleOpen}>Open modal</Button>
-            {/* <Modal
+            <Modal
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
@@ -27,7 +27,7 @@ export default function BasicModal() {
                     Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
                 </Typography>
                 </Box>
-            </Modal> */}
+            </Modal>
             <AddRatingModal handleOpen={handleOpen} handleClose={handleClose}></AddRatingModal>
         </div>
   );
