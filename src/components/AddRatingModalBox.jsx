@@ -2,18 +2,16 @@ import "../Components.css"
 import { useState, useEffect } from 'react';
 import { auth, firestore } from '../services/firebase';
 import { collection, addDoc, getDocs, query } from 'firebase/firestore';
-import { useParams } from 'react-router-dom';
 import { Rating } from '@mui/material';
 import { Star } from '@mui/icons-material';
 import { TextField } from "@mui/material";
-import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 
 
 
-export default function AddRatingModalBox() {
+export default function AddRatingModalBox({courseCode}) {
     // sets the course code from the route (:id)
-    let { courseCode } = useParams();
+    // let { courseCode } = useParams();
 
     const [contentRating, setContentRating] = useState(0);
     const [qualityRating, setQualityRating] = useState(0);
@@ -87,50 +85,48 @@ export default function AddRatingModalBox() {
     };
 
     return (
-        <Box sx={style}>
-            <div className='rating-modal' style={style}>
-                <h1 style={{ fontSize: '30px', marginBottom: '30px' }}>Ratings Page</h1>
+        <Box sx={style} className='rating-modal'>
+            <h1 style={{ fontSize: '30px', marginBottom: '30px' }}>Ratings Page</h1>
 
-                <div className='container'>
-                    <div>
-                        <p>Content</p>
-                        <Rating
-                            value={contentRating}
-                            precision={1}
-                            onChange={(event, newValue) => { setContentRating(newValue); }}
-                            emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
-                        />
-                    </div>
-                    <div>
-                        <p>Quality</p>
-                        <Rating
-                            value={qualityRating}
-                            precision={1}
-                            onChange={(event, newValue) => { setQualityRating(newValue); }}
-                            emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
-                        />
-                    </div>
-                    <div>
-                        <p>Workload</p>
-                        <Rating
-                            value={workloadRating}
-                            precision={1}
-                            onChange={(event, newValue) => { setWorkloadRating(newValue); }}
-                            emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
-                        />
-                    </div>
+            <div className='container'>
+                <div>
+                    <p>Content</p>
+                    <Rating
+                        value={contentRating}
+                        precision={1}
+                        onChange={(event, newValue) => { setContentRating(newValue); }}
+                        emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                    />
                 </div>
-
-                <TextField
-                    id="filled-multiline-flexible"
-                    label="Multiline"
-                    multiline
-                    maxRows={4}
-                    variant="filled"
-                />
-                    
-                <button className='btn outline' onClick={handleSubmission}>Submit Rating</button>
+                <div>
+                    <p>Quality</p>
+                    <Rating
+                        value={qualityRating}
+                        precision={1}
+                        onChange={(event, newValue) => { setQualityRating(newValue); }}
+                        emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                    />
+                </div>
+                <div>
+                    <p>Workload</p>
+                    <Rating
+                        value={workloadRating}
+                        precision={1}
+                        onChange={(event, newValue) => { setWorkloadRating(newValue); }}
+                        emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                    />
+                </div>
             </div>
+
+            <TextField
+                id="filled-multiline-flexible"
+                label="Multiline"
+                multiline
+                maxRows={4}
+                variant="filled"
+            />
+                
+            <button className='btn outline' onClick={handleSubmission}>Submit Rating</button>
         </Box>
     );
 }

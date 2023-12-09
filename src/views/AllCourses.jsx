@@ -60,8 +60,8 @@ export default function AllCourses() {
     fetchCourses();
   }, []);
 
-  const handleAddRating = () => {
-    handleOpen();
+  function handleAddRating(code) {
+    handleOpen(code);
   };
 
   const rows = courses.map((course, index) => ({
@@ -132,7 +132,7 @@ export default function AllCourses() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <AddRatingModalBox />
+        <AddRatingModalBox/>
       </Modal>
       <DataGrid
         rows={rows}
