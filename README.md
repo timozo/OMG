@@ -12,3 +12,4 @@ Currently, two official plugins are available:
 
 DATA GRID https://mui.com/x/api/data-grid/data-grid/
 DATA GRID COLUMN DEFINITION https://mui.com/x/api/data-grid/grid-col-def/
+CARROUSEL FOR FORM https://mui.com/material-ui/react-stepper/#text-with-carousel-effect
