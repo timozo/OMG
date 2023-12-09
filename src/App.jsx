@@ -5,10 +5,9 @@ import LoginPage from "./views/LoginPage";
 import SignupPage from "./views/SignupPage";
 import Search from "./views/Search";
 import Header from "./components/Header";
-import RatingsPage from "./views/RatingPage";
+import AddRating from "./views/AddRatingPage";
 import AllCourses from "./views/AllCourses";
 import Course from "./views/Course";
-import { Rating } from "@mui/material";
 import EasyCredits from "./views/EasyCredits";
 
 function App() {
@@ -20,11 +19,10 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/rating" element={<RatingsPage />} />
           <Route path="/search" element={<Search />} />
           <Route path="/courses" element={<AllCourses />} />
           <Route path="/courses/:id" element={<Course />}/>
-          <Route path="/courses/:id" element={<Rating />}/>
+          <Route path="/courses/:id/add-rating" element={<AddRating />}/>
           <Route path="/ezpz" element={<EasyCredits />}/>
         </Routes>
       </Router>
