@@ -1,14 +1,19 @@
+import "../Components.css"
 import { useState, useEffect } from 'react';
 import { auth, firestore } from '../services/firebase';
 import { collection, addDoc, getDocs, query } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 import { Rating } from '@mui/material';
 import { Star } from '@mui/icons-material';
-import {TextField} from '@mui/material';
+import { TextField } from "@mui/material";
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
 
-export default function AddRatingModal({title}) {
+
+
+export default function AddRatingModal({handleOpen, handleClose}) {
     // sets the course code from the route (:id)
-    let courseCode = useParams();
+    let { courseCode } = useParams();
 
     const [contentRating, setContentRating] = useState(0);
     const [qualityRating, setQualityRating] = useState(0);
@@ -58,13 +63,13 @@ export default function AddRatingModal({title}) {
             const ratingsCollection = collection(firestore, 'ratings');
 
             await addDoc(ratingsCollection, {
-                courseCode: courseCode,
-                contentRating: contentRating,
-                qualityRating: qualityRating,
-                workloadRating: workloadRating,
+                courseCode,
+                contentRating,
+                qualityRating,
+                workloadRating,
                 avgRating: calculateAvgRating(), // Add the avgRating field
-                comment: comment,
-                userUid: userUid,
+                comment,
+                userUid,
                 timestamp: new Date(),
             });
 
@@ -82,51 +87,71 @@ export default function AddRatingModal({title}) {
     };
 
     return (
-        <div className='rating-modal'>
-            <h1>Rate {title}</h1>
+        <Modal
+            open={handleOpen}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+        >
+            <Box sx={style}>
 
-            <div className='container'>
-                <div>
-                    <p>Content</p>
-                    <Rating
-                        value={contentRating}
-                        precision={1}
-                        onChange={(event, newValue) => { setContentRating(newValue); }}
-                        emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
-                    />
+            <div className='rating-modal' style={style}>
+                <h1 style={{ fontSize: '30px', marginBottom: '30px' }}>Ratings Page</h1>
+
+                <div className='container'>
+                    <div>
+                        <p>Content</p>
+                        <Rating
+                            value={contentRating}
+                            precision={1}
+                            onChange={(event, newValue) => { setContentRating(newValue); }}
+                            emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                        />
+                    </div>
+                    <div>
+                        <p>Quality</p>
+                        <Rating
+                            value={qualityRating}
+                            precision={1}
+                            onChange={(event, newValue) => { setQualityRating(newValue); }}
+                            emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                        />
+                    </div>
+                    <div>
+                        <p>Workload</p>
+                        <Rating
+                            value={workloadRating}
+                            precision={1}
+                            onChange={(event, newValue) => { setWorkloadRating(newValue); }}
+                            emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                        />
+                    </div>
                 </div>
-                <div>
-                    <p>General quality</p>
-                    <Rating
-                        value={qualityRating}
-                        precision={1}
-                        onChange={(event, newValue) => { setQualityRating(newValue); }}
-                        emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
-                    />
-                </div>
-                <div>
-                    <p>Workload</p>
-                    <Rating
-                        value={workloadRating}
-                        precision={1}
-                        onChange={(event, newValue) => { setWorkloadRating(newValue); }}
-                        emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
-                    />
-                </div>
+
+                <TextField
+                    id="filled-multiline-flexible"
+                    label="Multiline"
+                    multiline
+                    maxRows={4}
+                    variant="filled"
+                />
+                    
+                <a className='btn outline' onClick={handleSubmission}>Submit Rating</a>
+
             </div>
-
-            <TextField
-                id="filled-multiline-flexible"
-                label="Multiline"
-                multiline
-                rows={4}
-                maxRows={4}
-                fullWidth={true}
-            />
-
-            <div>
-                <a className='btn filled primary' onClick={handleSubmission}>Submit Rating</a>
-            </div>
-        </div>
+            </Box>
+        </Modal>
     );
 }
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+};
