@@ -16,9 +16,7 @@ export default function LandingPage() {
             // value={searchTerm}
             // onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button /*onClick={handleSearch}*/ className="landing_search_btn">
-            Search
-          </button>
+          <a className="btn filled primary">Search</a>
         </div>
       </body>
     </>
