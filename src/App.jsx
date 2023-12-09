@@ -5,9 +5,10 @@ import LoginPage from "./views/LoginPage";
 import SignupPage from "./views/SignupPage";
 import Search from "./views/Search";
 import Header from "./components/Header";
-import AddRatingModal from "./views/AddRatingModal";
+import AddRatingModal from "./components/AddRatingModal";
 import AllCourses from "./views/AllCourses";
 import Course from "./views/Course";
+import ModalTest from "./views/ModalTest"
 import EasyCredits from "./views/EasyCredits";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/search" element={<Search />} />
           <Route path="/courses" element={<AllCourses />} />
+          <Route path="/test-modal" element={<ModalTest />} />
           <Route path="/courses/:id" element={<Course />}/>
           <Route path="/courses/:id/add-rating" element={<AddRatingModal />}/>
           <Route path="/ezpz" element={<EasyCredits />}/>
