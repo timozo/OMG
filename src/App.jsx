@@ -23,9 +23,8 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/courses" element={<AllCourses />} />
           <Route path="/test-modal" element={<ModalTest />} />
-          <Route path="/courses/:id" element={<Course />}/>
-          <Route path="/courses/:id/add-rating" element={<AddRatingModal />}/>
-          <Route path="/ezpz" element={<EasyCredits />}/>
+          <Route path="/courses/:id" element={<Course />} />
+          <Route path="/ezpz" element={<EasyCredits />} />
         </Routes>
       </Router>
     </>

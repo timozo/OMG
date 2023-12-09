@@ -31,7 +31,6 @@ body {
   align-items: center;
   text-align: center;
   text-decoration: none;
-  font-family: sans-serif;
 }
 
 .btn.outline {
@@ -75,7 +74,6 @@ body {
 .landing_header {
   color: white;
   font-size: 3rem;
-  font-family: sans-serif;
   text-align: start;
   margin-bottom: 0;
 }
@@ -83,7 +81,6 @@ body {
 .landing_prompt {
   color: white;
   font-size: 1.5em;
-  font-family: sans-serif;
   font-weight: 300;
   text-align: start;
   margin-top: 0.8rem;

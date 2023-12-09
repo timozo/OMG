@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 
 
 
-export default function AddRatingModal({handleOpen, handleClose}) {
+export default function AddRatingModal({ handleOpen, handleClose }) {
     // sets the course code from the route (:id)
     let { courseCode } = useParams();
 
@@ -95,50 +95,50 @@ export default function AddRatingModal({handleOpen, handleClose}) {
         >
             <Box sx={style}>
 
-            <div className='rating-modal' style={style}>
-                <h1 style={{ fontSize: '30px', marginBottom: '30px' }}>Ratings Page</h1>
+                <div className='rating-modal' style={style}>
+                    <h1 style={{ fontSize: '30px', marginBottom: '30px' }}>Ratings Page</h1>
 
-                <div className='container'>
-                    <div>
-                        <p>Content</p>
-                        <Rating
-                            value={contentRating}
-                            precision={1}
-                            onChange={(event, newValue) => { setContentRating(newValue); }}
-                            emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
-                        />
+                    <div className='container'>
+                        <div>
+                            <p>Content</p>
+                            <Rating
+                                value={contentRating}
+                                precision={1}
+                                onChange={(event, newValue) => { setContentRating(newValue); }}
+                                emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                            />
+                        </div>
+                        <div>
+                            <p>Quality</p>
+                            <Rating
+                                value={qualityRating}
+                                precision={1}
+                                onChange={(event, newValue) => { setQualityRating(newValue); }}
+                                emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                            />
+                        </div>
+                        <div>
+                            <p>Workload</p>
+                            <Rating
+                                value={workloadRating}
+                                precision={1}
+                                onChange={(event, newValue) => { setWorkloadRating(newValue); }}
+                                emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <p>Quality</p>
-                        <Rating
-                            value={qualityRating}
-                            precision={1}
-                            onChange={(event, newValue) => { setQualityRating(newValue); }}
-                            emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
-                        />
-                    </div>
-                    <div>
-                        <p>Workload</p>
-                        <Rating
-                            value={workloadRating}
-                            precision={1}
-                            onChange={(event, newValue) => { setWorkloadRating(newValue); }}
-                            emptyIcon={<Star style={{ opacity: 0.55 }} fontSize="inherit" />}
-                        />
-                    </div>
+
+                    <TextField
+                        id="filled-multiline-flexible"
+                        label="Multiline"
+                        multiline
+                        maxRows={4}
+                        variant="filled"
+                    />
+
+                    <a className='btn outline' onClick={handleSubmission}>Submit Rating</a>
+
                 </div>
-
-                <TextField
-                    id="filled-multiline-flexible"
-                    label="Multiline"
-                    multiline
-                    maxRows={4}
-                    variant="filled"
-                />
-                    
-                <a className='btn outline' onClick={handleSubmission}>Submit Rating</a>
-
-            </div>
             </Box>
         </Modal>
     );

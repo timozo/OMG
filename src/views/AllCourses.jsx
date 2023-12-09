@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { firestore } from "../services/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import AddRatingModalBox from "../components/AddRatingModalBox";
@@ -26,34 +27,14 @@ export default function AllCourses() {
         const coursesSnapshot = await getDocs(coursesCollection);
 
         const courseData = [];
-        const promises = coursesSnapshot.docs.map(async (doc) => {
+        coursesSnapshot.forEach((doc) => {
           const data = doc.data();
-          const courseCode = data["course-code"];
-
-          const ratingsCollection = collection(firestore, "ratings");
-          const ratingsQuery = query(
-            ratingsCollection,
-            where("courseCode", "==", courseCode)
-          );
-          const ratingsSnapshot = await getDocs(ratingsQuery);
-
-          let totalAvgRating = 0;
-
-          if (ratingsSnapshot.size > 0) {
-            ratingsSnapshot.forEach((ratingDoc) => {
-              const ratingData = ratingDoc.data();
-              totalAvgRating += ratingData.avgRating || 0;
-            });
-
-            totalAvgRating /= ratingsSnapshot.size;
-          }
-
           courseData.push({
             id: doc.id,
-            code: courseCode,
+            code: data["course-code"],
             name: data["name"],
             credits: data["credits"],
-            rating: totalAvgRating.toFixed(2),
+            rating: data["ratings"],
           });
         });
 
@@ -77,19 +58,6 @@ export default function AllCourses() {
     col2: course.name,
     col3: course.credits,
     col4: course.rating,
-    col5: (
-      <button
-        className="btn filled primary"
-        onClick={handleAddRating}
-      >
-        Add Rating
-      </button>
-    ),
-    col6: (
-      <button>
-        See more
-      </button>
-    ),
   }));
 
   const columns = [
