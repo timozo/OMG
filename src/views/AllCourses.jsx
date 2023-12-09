@@ -252,7 +252,7 @@ class AllCourses extends Component {
         </Modal>
         <div style={{ padding: '2rem' }}>
           <DataGrid
-            style={{ background: 'white', padding: '1rem', borderRadius: '27px' }}
+            style={{ marginTop: "7rem", background: 'white', padding: '1rem', borderRadius: '27px' }}
             rows={rows}
             columns={columns}
             components={{

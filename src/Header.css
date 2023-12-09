@@ -3,7 +3,6 @@
     color: white;
     user-select: none;
     z-index: 100;
-    
 }
 
 .menu_container {
@@ -47,9 +46,15 @@
     }
 }
 
+
+
 .app_header {
     margin: auto;
     background: linear-gradient(to right, var(--color-purple) 50%, var(--color-blue) 50%);
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    right: 0;
   }
   
   .app_header .links {
