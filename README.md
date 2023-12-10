@@ -15,7 +15,7 @@ GitLab's CI/CD will then build and push the generated files to the server.
 
 ## NGINX web server
 
-If using NGINX, use this server file :
+If using NGINX, create a new file on the directory `/etc/nginx/sites-available/` server called whatever, with this content :
 
 ```nginx
 server {
@@ -32,7 +32,19 @@ server {
 }
 ```
 
-After having added a domain that points to the server's IP, you can install SSL using certbot :
+Then create a symlink of the created file in the `/etc/nginx/sites-enabled` directory :
+
+```bash
+sudo ln -s /etc/nginx/sites-available/omg /etc/nginx/sites-enabled/omg
+
+# deactive the default web page shown by nginx
+sudo rm /etc/nginx/sites-enabled/default
+
+# restart the NGINX service to apply the changes
+sudo systemctl restart nginx
+```
+
+After having added a domain that points to the server's public IP, you can install SSL using certbot :
 
 ```bash
 sudo apt install python3-certbot python3-certbot-nginx
