@@ -1,15 +1,40 @@
-# React + Vite
+# OMG
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project for Junction's BRIDG3 24 Hackathon
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# omg-fe
+## Gitlab CI/CD
 
-## Library documentation
+Set up the following CI/CD variables :
+- `KNOWN_HOSTS` - the web server's public ssh key(s), to get the value connect to the server, and visit the `~/.ssh/known_hosts` file to copy the added lines after the first connection
+- `SSH_HOST` - contains the username, the IP of the server, and the web server root location in the format debian@[ip]:/path/to/web/root
+- `SSH_PRIVATE_KEY` - to connect to the server, generate a SSH keypair, add the **public** key to the server's `~/.ssh/known_hosts`, then set this variable to the **private** key (starting by "-----BEGIN OPENSSH PRIVATE KEY-----")
 
-DATA GRID https://mui.com/x/api/data-grid/data-grid/
-DATA GRID COLUMN DEFINITION https://mui.com/x/api/data-grid/grid-col-def/
-CARROUSEL FOR FORM https://mui.com/material-ui/react-stepper/#text-with-carousel-effect
+GitLab's CI/CD will then build and push the generated files to the server.
+
+## NGINX web server
+
+If using NGINX, use this server file :
+
+```nginx
+server {
+        root /home/debian/omg/dist;
+        server_name omg.swansondev.me;
+
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to the root index.html
+                try_files $uri $uri/ /index.html;
+        }
+
+    listen 80;
+}
+```
+
+After having added a domain that points to the server's IP, you can install SSL using certbot :
+
+```bash
+sudo apt install python3-certbot python3-certbot-nginx
+sudo certbot
+```
